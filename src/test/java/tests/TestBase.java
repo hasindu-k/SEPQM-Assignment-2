@@ -70,7 +70,7 @@ public class TestBase {
         options.addArguments("--start-maximized");
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-save-password-bubble");
-        options.addArguments("--headless=new");
+//        options.addArguments("--headless=new");
 
         driver = new ChromeDriver(options);
         driver.get("https://www.saucedemo.com/");
@@ -79,7 +79,7 @@ public class TestBase {
     @After
     public void tearDown() {
         if (driver != null) {
-            takeScreenshot("final_state");  // ✅ Move here
+            takeScreenshot("final_state");
             try {
                 driver.quit();
                 System.out.println("Browser session ended");
