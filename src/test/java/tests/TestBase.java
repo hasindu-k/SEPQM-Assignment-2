@@ -79,12 +79,14 @@ public class TestBase {
     @After
     public void tearDown() {
         if (driver != null) {
+            takeScreenshot("final_state");  // ✅ Move here
             try {
-                takeScreenshot("final_state");
-            } finally {
                 driver.quit();
                 System.out.println("Browser session ended");
+            } catch (Exception e) {
+                System.err.println("Error quitting browser: " + e.getMessage());
             }
         }
     }
+
 }
