@@ -49,18 +49,29 @@ public class TestBase {
     public void setUp() {
         new File("screenshots").mkdirs();
         
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+
         
         ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--remote-allow-origins=*");
+//        options.addArguments("--start-maximized");
+//        options.addArguments("--disable-notifications");
+//        
+//        // Add these to suppress password change prompts
+//        options.addArguments("--disable-save-password-bubble");
+//        options.addArguments("--disable-autofill-keyboard-accessory-view[1]");
+//        options.addArguments("--disable-infobars");
+//        
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--start-maximized");
-        options.addArguments("--disable-notifications");
-        
-        // Add these to suppress password change prompts
-        options.addArguments("--disable-save-password-bubble");
-        options.addArguments("--disable-autofill-keyboard-accessory-view[1]");
         options.addArguments("--disable-infobars");
-        
+        options.addArguments("--disable-save-password-bubble");
+        options.addArguments("--headless=new");
+
         driver = new ChromeDriver(options);
         driver.get("https://www.saucedemo.com/");
     }
