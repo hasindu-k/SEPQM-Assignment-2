@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "testng-1.0.dtd">
+<suite name="SauceDemo Test Suite">
+  <test name="Regression Tests">
+    <classes>
+      <class name="tests.LoginTests"/>
+      <class name="tests.CartTests"/>
+      <class name = "tests.CheckoutTests.java"/>
+    </classes>
+  </test>
+</suite>
